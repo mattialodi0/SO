@@ -1,0 +1,30 @@
+//C
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+
+void fun(){
+
+}
+
+int main(int argc, char *argv[]) {
+  if(argc != 2) {
+        perror("args number");
+        exit(EXIT_FAILURE);
+    }
+
+  fun();
+  
+  return 0;
+}
+
+#py
+#!/usr/bin/python3
+
+import os, sys
+
+def fun():
+
+
+if __name__ == "__main__":
+  fun();
