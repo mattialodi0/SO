@@ -5,7 +5,7 @@ import sys
 import magic
 import subprocess
 
-
+# per ogni tipo di file ritorna i file di quel tipo
 def listfile():
     if(len(sys.argv) == 1):
         dir = '.'
