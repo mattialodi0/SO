@@ -1,0 +1,95 @@
+#include <unistd.h>
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include <dirent.h>
+#include <sys/stat.h>
+#include <sys/types.h>
+#include "19.h"
+
+
+int isok(char *filename, int *i, int *inum)
+{
+    struct stat file_stat;
+    stat(filename, &file_stat);
+
+    if (strcmp(".", filename) == 0 || strcmp("..", filename) == 0)
+        return 0;
+    else if (S_ISREG(file_stat.st_mode)) { // è un file regolare
+        int j;
+        for(j=0; j<*i; j++) {
+            if(file_stat.st_ino == inum[j])
+                return 0;
+        }
+        inum[*i] = file_stat.st_ino;
+        *i++;
+        return 1;
+    }
+    else if (S_ISDIR(file_stat.st_mode)) { // è una directory
+        count(filename);
+        return 1;
+    }
+    else
+        return 0;
+}
+
+int entrynum(char *path)
+{
+    int file_count = 0;
+    DIR *dirp;
+    struct dirent *entry;
+
+    dirp = opendir("path");
+    if (dirp)
+    {
+        while ((entry = readdir(dirp)) != NULL)
+        {
+            file_count++;
+        }
+        closedir(dirp);
+    }
+
+    return file_count;
+}
+
+int count(char *path)
+{
+    int n = 0, i = 0;
+    DIR *d;
+    struct dirent *dir;
+    int en = entrynum(path);
+    int inum[en];
+
+    d = opendir(path);
+    if (d)
+    {
+        while ((dir = readdir(d)) != NULL)
+        {
+            if (isok(dir->d_name, &i, inum))
+                n++;
+        }
+        closedir(d);
+    }
+
+    return n;
+}
+
+int main(int argc, char *argv[])
+{
+    if (argc != 1 && argc != 2)
+    {
+        perror("argv");
+        exit(EXIT_FAILURE);
+    }
+
+    char *path;
+    if (argc == 1)
+        path = ".";
+    else
+        strcpy(path, argv[1]);
+
+    int n = count(path);
+    printf("Numero di file in \'%s\': %d\n", path, n);
+
+    return 0;
+}
