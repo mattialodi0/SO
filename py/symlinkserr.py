@@ -1,6 +1,6 @@
 import sys, os
 
-
+#trova i symlinks che non puntano più da un file esistente
 def finderrlinks():
     for root, dis, files in os.walk('.'):
         for file in files:
