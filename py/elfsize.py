@@ -3,7 +3,7 @@
 import os
 import sys
 
-# 
+# ritorna la somma della dim dei file ELF
 def elfsize():
     dim = 0
     dirs = []
