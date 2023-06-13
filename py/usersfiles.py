@@ -1,6 +1,7 @@
 import sys, os
 
 
+# ritorna il numero di file in cui ogni utente ha un identità
 def users():
     users = {}
     path = '/proc'
