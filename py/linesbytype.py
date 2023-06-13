@@ -3,7 +3,7 @@
 import os
 
 
-#ritorna la lista ordinata al contrario dei file nella dir in input
+#ritorna il numero di righe per tipo di file nella dir corrente
 def clines():
     totc, toth, totm = 0, 0, 0
 
