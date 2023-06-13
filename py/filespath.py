@@ -1,5 +1,6 @@
 import sys, os
 
+# ritorna il percorso di ogni file
 def rlsr():
     path = sys.argv[1]
     res = {}
