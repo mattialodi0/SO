@@ -3,7 +3,7 @@
 import os, sys
 
 
-#ritorna la lista ordinata al contrario dei file nella dir in input
+#ritorna il numero data la syscall o viceversa
 def getsyscalls():
     if(len(sys.argv) != 2):
         print("Wrong num of arguments")
