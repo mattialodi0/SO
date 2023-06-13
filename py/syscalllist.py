@@ -3,7 +3,7 @@
 import os
 
 
-#ritorna la lista ordinata al contrario dei file nella dir in input
+#ritorna la lista delle syscalls
 def listsyscalls():
     inputfile = "/usr/include/x86_64-linux-gnu/asm/unistd_64.h"
     syscallslist = []
