@@ -1,6 +1,6 @@
 import sys, os
 
-
+# ritorna il numero di fd per ogni proc
 def mostdes():
     path = '/proc'
     proc = {}
