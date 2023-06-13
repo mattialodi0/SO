@@ -11,7 +11,7 @@ def modified():
             res[file] = os.path.getmtime(os.path.join(root,file))
     
     sortedres = {key: value for key, value in sorted(res.items(), key=lambda item: item[1])}
-    print(f'Last modified file: {list(sortedres.keys())[0]}, {dt.fromtimestamp(list(sortedres.values())[0])}')
+    print(f'First modified file: {list(sortedres.keys())[0]}, {dt.fromtimestamp(list(sortedres.values())[0])}')
     print(f'Last modified file: {list(sortedres.keys())[-1]}, {dt.fromtimestamp(list(sortedres.values())[-1])}')
 
 
