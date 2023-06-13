@@ -1,6 +1,6 @@
 import sys, os
 
-
+# ritorna i file che contengono il testo in input
 def matchpath():
     path = sys.argv[1]
     matchedfiles = {}
