@@ -52,7 +52,7 @@ int main(int argc, char *argv[]) {
 			strcpy(path, argv[1]);
 			strcat(path, "/");
 			strcat(path, dir->d_name);
-			nonest_symlink(path);
+			abssymlink(path);
     		}
 		closedir(d);
 	}
