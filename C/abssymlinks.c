@@ -7,7 +7,7 @@
 #include <sys/stat.h>
 #include <unistd.h>
 
-void nonest_symlink(char *linkpath) {
+void abssymlink(char *linkpath) {
 	struct stat buf;
 	if (lstat(linkpath, &buf) == -1) {
 		fprintf(stderr, "non riesco ad aprire %s\n", linkpath);
