@@ -3,17 +3,13 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-void fun(){
-
-}
-
 int main(int argc, char *argv[]) {
   if(argc != 2) {
         perror("args number");
         exit(EXIT_FAILURE);
     }
 
-  fun();
+  // ...
   
   return 0;
 }
